@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2012 the original author or authors.
+ * Copyright 2008-2014 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@ import org.springframework.test.context.ContextConfiguration;
  * Testcase to run {@link UserRepository} integration tests on top of OpenJPA.
  * 
  * @author Oliver Gierke
+ * @author Thomas Darimont
  */
 @ContextConfiguration("classpath:openjpa.xml")
 public class OpenJpaNamespaceUserRepositoryTests extends NamespaceUserRepositoryTests {
@@ -111,4 +112,10 @@ public class OpenJpaNamespaceUserRepositoryTests extends NamespaceUserRepository
 	public void invokesQueryWithVarargsParametersCorrectly() {
 
 	}
+
+	/**
+	 * OpenJPA doesn't seem to support sorting by nested association expressions. TODO add OpenJPA JIRA Ticket.
+	 */
+	@Override
+	public void sortByNestedAssociationPropertyWithSortInPageable() {}
 }
